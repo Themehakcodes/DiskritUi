@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-accent="coral">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Diskrit — Modern, responsive social network with vertical shorts, real-time messaging, community safety controls, and creator monetization.">
+  <meta name="theme-color" content="#000000">
+  <title>Diskrit — Next-Gen Social Media</title>
+
+  <!-- Core Design Tokens & System Styles -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- Feature-Specific Styles -->
+  <link rel="stylesheet" href="css/pages/feed.css">
+  <link rel="stylesheet" href="css/pages/shorts.css">
+  <link rel="stylesheet" href="css/pages/profile.css">
+  <link rel="stylesheet" href="css/pages/chat.css">
+  <link rel="stylesheet" href="css/pages/settings.css">
+  <link rel="stylesheet" href="css/pages/admin.css">
+  <link rel="stylesheet" href="css/pages/auth.css">
+
+  <!-- Official Brand Favicons (Diskrit Masquerade Identity) -->
+  <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/icons/favicon-64.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/favicon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/icons/favicon-512.png">
+  <link rel="apple-touch-icon" href="assets/icons/favicon-192.png">
+
+  <!-- Progressive Web App (PWA) Manifest & Standalone Configuration -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Diskrit">
+  <meta name="application-name" content="Diskrit">
+</head>
+<body>
+  <!-- Dynamic Mounting Root -->
+  <div id="app-root">
+    <!-- Initial Loading Skeleton -->
+    <div style="display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #000000; color: #f8fafc; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
+        <div style="width: 54px; height: 54px; display: flex; align-items: center; justify-content: center;">
+          <img src="assets/images/logo.png" style="width: 100%; height: auto; object-fit: contain;" alt="Diskrit">
+        </div>
+        <div style="font-weight: 700; font-size: 18px; letter-spacing: -0.02em;">Loading Diskrit...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reusable Script Modules (Vanilla ES6+ Architecture) -->
+  <script src="js/icons.js?v=2"></script>
+  <script src="js/mock-data.js?v=2"></script>
+  <script src="js/storage.js?v=2"></script>
+  <script src="js/theme.js?v=2"></script>
+  
+  <!-- UI Components -->
+  <script src="js/components/modals.js?v=2"></script>
+  <script src="js/components/navbar.js?v=2"></script>
+  <script src="js/components/sidebar.js?v=2"></script>
+  <script src="js/components/post-card.js?v=2"></script>
+  <script src="js/components/composer.js?v=2"></script>
+  <script src="js/components/masonry.js?v=2"></script>
+  <script src="js/components/share-modal.js?v=2"></script>
+
+  <!-- Page Controllers -->
+  <script src="js/pages/home.js?v=2"></script>
+  <script src="js/pages/shorts.js?v=2"></script>
+  <script src="js/pages/profile.js?v=2"></script>
+  <script src="js/pages/friends.js?v=2"></script>
+  <script src="js/pages/search.js?v=2"></script>
+  <script src="js/pages/notifications.js?v=2"></script>
+  <script src="js/pages/post-detail.js?v=2"></script>
+  <script src="js/pages/saved.js?v=2"></script>
+  <script src="js/pages/chat.js?v=2"></script>
+  <script src="js/pages/settings.js?v=2"></script>
+  <script src="js/pages/auth.js?v=2"></script>
+  <script src="js/pages/admin.js?v=2"></script>
+  <script src="js/pages/creator.js?v=2"></script>
+  <script src="js/pages/legal.js?v=2"></script>
+  <script src="js/pages/errors.js?v=2"></script>
+
+  <!-- Router & Application Orchestrator -->
+  <script src="js/router.js?v=2"></script>
+  <script src="js/pwa.js?v=2"></script>
+  <script src="js/app.js?v=2"></script>
+
+  <!-- Auto-recovery Watchdog: Ensures app never gets stuck on initial skeleton -->
+  <script>
+    setTimeout(function() {
+      var root = document.getElementById("app-root");
+      if (root && root.innerHTML.includes("Loading Diskrit...")) {
+        console.warn("[Diskrit Watchdog] Loading skeleton still visible. Booting router...");
+        if (window.Diskrit && window.Diskrit.app && window.Diskrit.app.init) {
+          try {
+            window.Diskrit.app.init();
+          } catch(e) {
+            console.error("[Diskrit Watchdog] app.init failed:", e);
+          }
+        } else if (window.Diskrit && window.Diskrit.router) {
+          try {
+            window.Diskrit.router.handleRoute();
+          } catch(e) {
+            console.error("[Diskrit Watchdog] router.handleRoute failed:", e);
+          }
+        }
+      }
+    }, 600);
+  </script>
+</body>
+</html>

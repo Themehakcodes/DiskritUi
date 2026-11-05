@@ -1,0 +1,397 @@
+/**
+ * DISKRIT RESPONSIVE ADAPTATIONS
+ * Optimizes desktop (1280px+), tablet (768px-1279px), and mobile (<768px)
+ */
+
+/* Large desktop (>= 1280px) */
+@media (min-width: 1280px) {
+  .app-mobile-nav {
+    display: none !important;
+  }
+}
+
+/* Tablet & Smaller Laptops (768px to 1279px) */
+@media (max-width: 1279px) {
+  .app-right-sidebar {
+    display: none; /* Auto-collapse right sidebar to give feed room */
+  }
+
+  .app-container.layout-feed .app-main-feed {
+    max-width: 100%;
+  }
+
+  .app-leftnav {
+    width: var(--leftnav-collapsed-width);
+  }
+
+  .app-leftnav .nav-link-label,
+  .app-leftnav .nav-section-title,
+  .app-leftnav .badge {
+    display: none;
+  }
+
+  .app-leftnav .nav-link-item {
+    justify-content: center;
+    padding: 0.75rem 0;
+  }
+}
+
+/* Mobile Screens (< 768px) */
+@media (max-width: 767px) {
+  :root {
+    --topbar-height: 56px;
+    --mobile-nav-height: 58px;
+  }
+
+  .app-leftnav {
+    display: none !important; /* Hidden on mobile; bottom nav is used */
+  }
+
+  .app-right-sidebar {
+    display: none !important;
+  }
+
+  .docked-chat-bar {
+    display: none !important; /* Use full-screen /chatify route on mobile */
+  }
+
+  /* Compact Pro Mobile Topbar */
+  .app-topbar {
+    padding: 0 12px;
+    height: var(--topbar-height);
+    gap: 8px;
+  }
+
+  .topbar-left {
+    min-width: auto;
+    gap: 8px;
+  }
+
+  .brand-logo {
+    gap: 6px;
+  }
+
+  .brand-logo-img {
+    height: 25px;
+    max-width: 38px;
+  }
+
+  .brand-logo-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .brand-logo-text {
+    font-size: 18px;
+  }
+
+  .topbar-search-container {
+    display: none !important;
+  }
+
+  .mobile-search-btn {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .safe-mode-pill {
+    padding: 6px 10px;
+    font-size: 11px;
+    gap: 4px;
+  }
+
+  .safe-mode-pill .safe-mode-label {
+    display: none !important; /* Hide long text on mobile, keep clean shield pill */
+  }
+
+  .topbar-right {
+    gap: 4px;
+  }
+
+  .btn-icon {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+  }
+
+  /* Main Container & Feed */
+  .app-container {
+    padding: 0 10px;
+    gap: 0;
+  }
+
+  .app-main-feed {
+    max-width: 100%;
+    padding: 10px 0 calc(var(--mobile-nav-height) + 20px);
+    gap: 12px;
+  }
+
+  /* Shorts Viewport: 100% Full-Bleed Edge-to-Edge on Mobile */
+  .app-container.layout-shorts {
+    padding: 0 !important;
+    height: calc(100vh - var(--topbar-height) - var(--mobile-nav-height)) !important;
+    width: 100vw !important;
+    overflow: hidden !important;
+  }
+
+  .app-container.layout-shorts .app-main-feed {
+    padding: 0 !important;
+    height: 100% !important;
+    width: 100% !important;
+  }
+
+  /* Fixed Mobile Bottom Navigation Bar */
+  .app-mobile-nav {
+    display: flex;
+    height: var(--mobile-nav-height);
+    padding-bottom: max(env(safe-area-inset-bottom, 0px), 4px);
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .mobile-nav-item {
+    font-size: 10px;
+    min-width: 48px;
+    padding: 4px 6px;
+    gap: 2px;
+  }
+
+  .mobile-nav-create-btn {
+    width: 44px;
+    height: 44px;
+    transform: translateY(-8px);
+    box-shadow: 0 4px 14px rgba(99, 102, 241, 0.45);
+  }
+
+  /* Post Cards & Composer */
+  .post-card, .composer-card {
+    border-radius: var(--radius-lg);
+    padding: 12px 14px;
+    gap: 10px;
+  }
+
+  .composer-header {
+    gap: 8px;
+  }
+
+  .composer-textarea {
+    min-height: 56px;
+    font-size: 14px;
+  }
+
+  .composer-footer {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-top: 8px;
+  }
+
+  .composer-tool-btn {
+    padding: 5px 8px;
+    font-size: 11px;
+  }
+
+  .post-header {
+    gap: 8px;
+  }
+
+  .post-author-name {
+    font-size: 14px;
+  }
+
+  .post-author-handle {
+    font-size: 12px;
+  }
+
+  .post-sub-meta {
+    font-size: 11px;
+  }
+
+  .post-body {
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .post-media-container {
+    aspect-ratio: 16 / 10;
+    max-height: 290px;
+    border-radius: var(--radius-md);
+  }
+
+  .post-action-bar {
+    min-height: 42px;
+    padding: 6px 0 2px 0;
+  }
+
+  .post-action-btn {
+    min-height: 40px;
+    padding: 0 6px;
+    font-size: 12px;
+    gap: 4px;
+  }
+
+  /* Profile Page Mobile */
+  .profile-banner {
+    height: 130px;
+  }
+
+  .profile-header-content {
+    padding: 0 12px 14px;
+  }
+
+  .profile-avatar-row {
+    margin-top: -38px;
+    margin-bottom: 8px;
+    gap: 8px;
+    align-items: flex-end;
+  }
+
+  .profile-avatar-img {
+    width: 78px;
+    height: 78px;
+    border: 3px solid var(--bg-card);
+  }
+
+  .profile-actions-group {
+    width: 100%;
+    justify-content: flex-end;
+    gap: 6px;
+    margin-top: 4px;
+  }
+
+  .profile-actions-group .btn {
+    flex: 1;
+    justify-content: center;
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  .profile-display-name {
+    font-size: 18px;
+  }
+
+  .profile-bio {
+    font-size: 13px;
+  }
+
+  .profile-stats-row {
+    gap: 10px;
+    justify-content: space-around;
+    padding: 10px 0 0;
+  }
+
+  .stat-item {
+    flex-direction: column;
+    gap: 0;
+    align-items: center;
+    font-size: 11px;
+  }
+
+  .stat-count {
+    font-size: 15px;
+  }
+
+  .profile-tabs-bar {
+    top: var(--topbar-height);
+  }
+
+  .profile-tab-item {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+
+  /* Settings Page Mobile */
+  .settings-layout {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .settings-nav-card {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding: 6px;
+    gap: 4px;
+  }
+
+  .settings-nav-card::-webkit-scrollbar {
+    display: none;
+  }
+
+  .settings-nav-item {
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 12px;
+    border-radius: var(--radius-full);
+  }
+
+  .settings-content-card {
+    padding: 14px;
+    border-radius: var(--radius-lg);
+    gap: 14px;
+  }
+
+  /* Friends & Search Grids Mobile */
+  #connections-grid-container {
+    grid-template-columns: 1fr !important;
+    gap: 10px;
+  }
+
+  #saved-items-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .saved-bookmark-card {
+    padding: 12px;
+    gap: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Admin & Studio Mobile */
+  .kpi-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px;
+  }
+
+  .kpi-card {
+    padding: 12px;
+  }
+
+  .kpi-value {
+    font-size: 20px;
+  }
+
+  .charts-row {
+    grid-template-columns: 1fr;
+  }
+
+  .table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Modals & Dialogs Mobile */
+  .modal-dialog {
+    max-width: 95vw;
+    margin: var(--space-2);
+  }
+
+  .toast-container {
+    bottom: calc(var(--mobile-nav-height) + 12px);
+    right: 12px;
+    left: 12px;
+  }
+
+  .toast {
+    max-width: 100%;
+    font-size: 13px;
+  }
+}

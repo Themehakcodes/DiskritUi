@@ -1,0 +1,9 @@
+.DS_Store
+Thumbs.db
+node_modules/
+*.log
+*.tmp
+.agents/
+test_render.png
+desktop_feed.png
+mobile_feed.png

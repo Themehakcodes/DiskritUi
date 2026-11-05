@@ -1,0 +1,78 @@
+{
+  "name": "Diskrit — Next-Gen Social Media",
+  "short_name": "Diskrit",
+  "description": "Modern social network with vertical shorts, real-time messaging, community safety controls, and creator monetization.",
+  "start_url": "./index.html#home",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "categories": [
+    "social",
+    "entertainment",
+    "photo",
+    "video"
+  ],
+  "icons": [
+    {
+      "src": "assets/icons/favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icons/favicon-64.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icons/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/maskable-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Newsfeed",
+      "short_name": "Feed",
+      "description": "View latest posts and creator updates",
+      "url": "./index.html#home",
+      "icons": [{ "src": "assets/icons/favicon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Shorts & Reels",
+      "short_name": "Shorts",
+      "description": "Browse full-screen vertical video reels",
+      "url": "./index.html#shorts",
+      "icons": [{ "src": "assets/icons/favicon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Messenger",
+      "short_name": "Chat",
+      "description": "Open private conversations and channels",
+      "url": "./index.html#chatify",
+      "icons": [{ "src": "assets/icons/favicon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Create Post",
+      "short_name": "Post",
+      "description": "Share a new photo, video, or thought",
+      "url": "./index.html#posts/create",
+      "icons": [{ "src": "assets/icons/favicon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}
+
