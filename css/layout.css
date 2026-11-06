@@ -283,6 +283,7 @@
 .app-container.layout-wide {
   max-width: 100%;
   width: 100%;
+  justify-content: flex-start;
 }
 
 .app-container.layout-wide .app-main-feed {
