@@ -256,7 +256,7 @@
 ======================================================== */
 .app-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex: 1;
   width: 100%;
   max-width: 100%;
@@ -271,6 +271,7 @@
 .app-container.layout-feed {
   max-width: 100%;
   width: 100%;
+  justify-content: flex-start;
 }
 
 .app-container.layout-feed .app-main-feed {
@@ -284,12 +285,14 @@
   max-width: 100%;
   width: 100%;
   justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .app-container.layout-wide .app-main-feed {
   max-width: 100%;
   flex: 1;
   min-width: 0;
+  width: 100%;
 }
 
 /* Layout Variant 3: Full (Chatify Messenger) */
