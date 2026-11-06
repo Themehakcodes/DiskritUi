@@ -442,6 +442,30 @@
   transition: border-color var(--transition-fast);
 }
 
+.post-card[data-post-url] {
+  cursor: pointer;
+}
+
+.post-card[data-post-url] a,
+.post-card[data-post-url] button,
+.post-card[data-post-url] [role="button"],
+.post-card[data-post-url] .post-action-btn,
+.post-card[data-post-url] .btn-icon,
+.post-card[data-post-url] .post-author-name,
+.post-card[data-post-url] .post-author-handle,
+.post-card[data-post-url] .post-hashtag {
+  cursor: pointer;
+}
+
+.post-card[data-post-url] .post-action-bar,
+.post-card[data-post-url] .custom-video-player,
+.post-card[data-post-url] .dropdown-menu,
+.post-card[data-post-url] input,
+.post-card[data-post-url] textarea,
+.post-card[data-post-url] label {
+  cursor: default;
+}
+
 .post-card:hover {
   border-color: var(--border-medium);
 }

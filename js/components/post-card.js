@@ -26,7 +26,7 @@ Diskrit.components.postCard = {
     const formattedContent = (post.content || '').replace(/#(\w+)/g, '<a href="#tags/$1" class="post-hashtag">#$1</a>');
 
     return `
-      <article class="post-card" id="card-${post.id}" data-id="${post.id}" data-slug="${post.slug}">
+      <article class="post-card" id="card-${post.id}" data-id="${post.id}" data-slug="${post.slug}" data-post-url="#post/${post.slug || post.id}">
         <!-- Post Header: Clean 2-Line Meta Layout -->
         <div class="post-header">
           <div class="post-author-info">
@@ -268,6 +268,31 @@ Diskrit.components.postCard = {
   },
 
   attachEvents(container = document) {
+    // 0. Card Click Redirection to Single Post View
+    container.querySelectorAll(".post-card[data-post-url]").forEach(card => {
+      card.addEventListener("click", (e) => {
+        if (
+          e.target.closest(
+            "a, button, input, textarea, select, label, video, .custom-video-player, .video-ctrl-btn, .dropdown-menu, .post-action-bar, .bypass-sensitive-btn, .post-author-follow-btn, [data-lightbox], .photo-expand-badge"
+          )
+        ) {
+          return;
+        }
+        const selection = window.getSelection();
+        if (selection && selection.toString().trim().length > 0) {
+          return;
+        }
+        const postUrl = card.dataset.postUrl || card.getAttribute("data-post-url");
+        if (postUrl) {
+          if (e.ctrlKey || e.metaKey || e.button === 1) {
+            window.open(postUrl, "_blank");
+          } else {
+            window.location.hash = postUrl.replace(/^#/, "");
+          }
+        }
+      });
+    });
+
     // 1. Follow Author toggle in post header
     container.querySelectorAll(".post-author-follow-btn").forEach(btn => {
       btn.addEventListener("click", (e) => {
