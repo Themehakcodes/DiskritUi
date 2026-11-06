@@ -581,12 +581,25 @@
   border-radius: var(--radius-lg);
   overflow: hidden;
   max-height: 480px;
-  background: #000000;
+  background: var(--bg-surface-elevated);
   border: 1px solid var(--border-subtle);
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  width: 100%;
+}
+
+/* Skeleton Loading State for Media Containers (Reserves space and shimmers to prevent layout popping) */
+.post-media-container.skeleton-loading {
+  min-height: 220px;
+  aspect-ratio: 16 / 10;
+  background: linear-gradient(90deg, 
+    var(--bg-surface-elevated) 25%, 
+    var(--bg-card-hover) 37%, 
+    var(--bg-surface-elevated) 63%);
+  background-size: 400% 100%;
+  animation: skeletonShimmer 1.4s ease infinite;
 }
 
 /* Photo Wrapper & Lightbox trigger */
@@ -615,11 +628,83 @@
   max-height: 520px;
   object-fit: cover;
   display: block;
-  transition: transform 0.25s ease;
+  opacity: 0;
+  transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s ease;
 }
 
-.post-photo-wrapper:hover .post-photo-img {
+.post-photo-img.is-loaded {
+  opacity: 1;
+}
+
+.post-photo-wrapper:hover .post-photo-img.is-loaded {
   transform: scale(1.02);
+}
+
+/* Skeleton Post Card & Content Line Utilities */
+.skeleton-card {
+  pointer-events: none;
+  user-select: none;
+  border-color: var(--border-subtle) !important;
+}
+
+.skeleton-avatar {
+  border-radius: 50% !important;
+  flex-shrink: 0;
+}
+
+.skeleton-line {
+  height: 12px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+}
+
+.skeleton-line:last-child {
+  margin-bottom: 0;
+}
+
+.skeleton-line.w-full { width: 100%; }
+.skeleton-line.w-90   { width: 90%; }
+.skeleton-line.w-75   { width: 75%; }
+.skeleton-line.w-60   { width: 60%; }
+.skeleton-line.w-45   { width: 45%; }
+.skeleton-line.w-30   { width: 30%; }
+
+.skeleton-line.h-title {
+  height: 14px;
+  margin-bottom: 6px;
+}
+
+.skeleton-line.h-sub {
+  height: 10px;
+}
+
+.skeleton-media-box {
+  width: 100%;
+  min-height: 220px;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--radius-lg);
+  margin: var(--space-3) 0;
+}
+
+.skeleton-actions-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding-top: var(--space-2);
+  margin-top: var(--space-2);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.skeleton-action-pill {
+  height: 28px;
+  width: 52px;
+  border-radius: var(--radius-pill);
+}
+
+.skeleton-action-circle {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
 }
 
 .photo-expand-badge {

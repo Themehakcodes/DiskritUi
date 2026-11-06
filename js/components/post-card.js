@@ -120,9 +120,9 @@ Diskrit.components.postCard = {
           </a>
         ` : ''}
 
-        <!-- Media Container with 18+ Safe Mode Guard -->
+        <!-- Media Container with 18+ Safe Mode Guard and Skeleton Loading Placeholder -->
         ${mediaUrl ? `
-          <div class="post-media-container ${isBlurred ? 'sensitive-content-guard' : ''}">
+          <div class="post-media-container ${!isVideo ? 'skeleton-loading' : ''} ${isBlurred ? 'sensitive-content-guard' : ''}">
             ${isBlurred ? `
               <div class="sensitive-overlay">
                 <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(245, 158, 11, 0.2); color: #f59e0b; display: flex; align-items: center; justify-content: center;">
@@ -175,6 +175,8 @@ Diskrit.components.postCard = {
                   src="${mediaUrl}" 
                   alt="Post attachment" 
                   loading="lazy"
+                  onload="this.classList.add('is-loaded'); this.closest('.post-media-container')?.classList.remove('skeleton-loading'); if (window.Diskrit && window.Diskrit.masonry) window.Diskrit.masonry.adjustItem(this.closest('.post-card'));"
+                  onerror="this.onerror=null; this.closest('.post-media-container')?.remove(); if (window.Diskrit && window.Diskrit.masonry) window.Diskrit.masonry.adjustItem(this.closest('.post-card'));"
                 >
                 <div class="photo-expand-badge">
                   ${Diskrit.icons("expand", "", 13)}
