@@ -434,10 +434,10 @@
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-xl);
-  padding: var(--space-5);
+  padding: 16px 18px;
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: 12px;
   box-shadow: var(--shadow-sm);
   transition: border-color var(--transition-fast);
 }
@@ -580,7 +580,8 @@
 .post-media-container {
   border-radius: var(--radius-lg);
   overflow: hidden;
-  max-height: 480px;
+  max-height: 290px;
+  aspect-ratio: 16 / 10;
   background: var(--bg-surface-elevated);
   border: 1px solid var(--border-subtle);
   display: flex;
@@ -592,7 +593,7 @@
 
 /* Skeleton Loading State for Media Containers (Reserves space and shimmers to prevent layout popping) */
 .post-media-container.skeleton-loading {
-  min-height: 220px;
+  min-height: 180px;
   aspect-ratio: 16 / 10;
   background: linear-gradient(90deg, 
     var(--bg-surface-elevated) 25%, 
@@ -607,7 +608,7 @@
   position: relative;
   width: 100%;
   height: 100%;
-  max-height: 520px;
+  max-height: 290px;
   cursor: zoom-in;
   overflow: hidden;
   display: flex;
@@ -619,14 +620,16 @@
   display: block;
   width: 100%;
   height: 100%;
+  max-height: 290px;
   text-decoration: none;
 }
 
 .post-photo-img {
   width: 100%;
-  height: auto;
-  max-height: 520px;
+  height: 100%;
+  max-height: 290px;
   object-fit: cover;
+  object-position: center top;
   display: block;
   opacity: 0;
   transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s ease;
@@ -638,6 +641,17 @@
 
 .post-photo-wrapper:hover .post-photo-img.is-loaded {
   transform: scale(1.02);
+}
+
+/* Single Post View Thread Detail Expansion */
+.post-detail-card .post-media-container,
+.post-detail-card .post-photo-wrapper,
+.post-detail-card .post-photo-wrapper a,
+.post-detail-card .post-photo-img,
+.post-detail-card .custom-video-player,
+.post-detail-card .custom-video-el {
+  max-height: 520px;
+  aspect-ratio: auto;
 }
 
 /* Skeleton Post Card & Content Line Utilities */
@@ -738,7 +752,7 @@
   position: relative;
   width: 100%;
   height: 100%;
-  max-height: 480px;
+  max-height: 290px;
   background: #000000;
   overflow: hidden;
   display: flex;
@@ -750,7 +764,7 @@
 .custom-video-el {
   width: 100%;
   height: 100%;
-  max-height: 480px;
+  max-height: 290px;
   object-fit: cover;
   display: block;
 }
