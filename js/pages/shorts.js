@@ -63,7 +63,7 @@ Diskrit.pages.shorts = {
                 <div class="shorts-action-icon-circle">
                   ${Diskrit.icons("heart", "", 24)}
                 </div>
-                <span class="shorts-action-label like-count">${short.likesCount}</span>
+                <span class="shorts-action-label like-count">${short.likesCount > 0 ? short.likesCount : ''}</span>
               </button>
 
               <!-- Comments Button -->
@@ -71,7 +71,7 @@ Diskrit.pages.shorts = {
                 <div class="shorts-action-icon-circle">
                   ${Diskrit.icons("message", "", 24)}
                 </div>
-                <span class="shorts-action-label comment-count">${short.comments.length}</span>
+                <span class="shorts-action-label comment-count">${short.comments && short.comments.length > 0 ? short.comments.length : ''}</span>
               </button>
 
               <!-- Share Button -->

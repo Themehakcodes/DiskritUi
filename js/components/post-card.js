@@ -195,7 +195,7 @@ Diskrit.components.postCard = {
             aria-label="Like Post"
           >
             ${Diskrit.icons("heart", "", 20)}
-            <span class="like-count">${post.likesCount || 0}</span>
+            <span class="like-count">${post.likesCount > 0 ? post.likesCount : ''}</span>
           </button>
 
           <!-- Comment Button -->
@@ -206,7 +206,7 @@ Diskrit.components.postCard = {
             aria-label="View Comments"
           >
             ${Diskrit.icons("message", "", 20)}
-            <span class="comment-count">${post.comments ? post.comments.length : 0}</span>
+            <span class="comment-count">${post.comments && post.comments.length > 0 ? post.comments.length : ''}</span>
           </button>
 
           <!-- Bookmark Button -->
@@ -440,7 +440,7 @@ Diskrit.components.postCard = {
         Diskrit.storage.set("posts", posts);
 
         btn.classList.toggle("liked", post.isLiked);
-        btn.querySelector(".like-count").textContent = post.likesCount;
+        btn.querySelector(".like-count").textContent = post.likesCount > 0 ? post.likesCount : '';
         btn.querySelector("svg").style.animation = post.isLiked ? "heartPop 0.35s ease" : "none";
       });
     });
